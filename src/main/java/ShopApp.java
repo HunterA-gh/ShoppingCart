@@ -29,7 +29,7 @@ public class ShopApp {
         //Collections.sort(clothes, new ClothingComparator());
         clothes.sort(Comparator.comparing(Clothing::getPrice));
         for(Clothing c : clothes){
-            System.out.println(c.getDescription() + " costs " + String.format("%s" + "%.2f", "$", c.getPrice()));
+            System.out.println(c.getDescription() + " is size " + c.getSize() + " and costs " + String.format("%s" + "%.2f", "$", c.getPrice()));
         }
     }
 
@@ -39,7 +39,7 @@ public class ShopApp {
 
     public static void printDiscAmtOff(Discountable[] pplWithDiscounts, Clothing cloth){
         for(Discountable d : pplWithDiscounts){
-            System.out.println(cloth.getDescription() + " gets a " + String.format("%s" + "%.2f", "$", d.calcDiscount(cloth)) + " from " + d.getClass().getSimpleName() + "'s Discount");
+            System.out.println(cloth.getDescription() + " is " + String.format("%s" + "%.2f", "$", d.calcDiscount(cloth)) + " off with " + d.getClass().getSimpleName() + "'s Discount");
         }
     }
 
