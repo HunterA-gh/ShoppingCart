@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class ShopApp {
@@ -25,6 +26,7 @@ public class ShopApp {
     }
 
     public static void sortAndPrintClothingByPrice(ArrayList<Clothing> clothes){
+        //Collections.sort(clothes, new ClothingComparator());
         clothes.sort(Comparator.comparing(Clothing::getPrice));
         for(Clothing c : clothes){
             System.out.println(c.getDescription() + " costs " + String.format("%s" + "%.2f", "$", c.getPrice()));
@@ -65,15 +67,15 @@ public class ShopApp {
         System.out.println(isAFit(m1, tShirt));
 
         System.out.println("\nHourly Employee price after discount-");
-        System.out.println("Jeans");
+        System.out.println("Jeans:");
         e1.printEmpPriceAfterDisc(jeans);
-        System.out.println("T-Shirt");
+        System.out.println("T-Shirt:");
         e1.printEmpPriceAfterDisc(tShirt);
 
         System.out.println("\nManager price after discount-");
-        System.out.println("Jeans");
+        System.out.println("Jeans:");
         m1.printEmpPriceAfterDisc(jeans);
-        System.out.println("T-Shirt");
+        System.out.println("T-Shirt:");
         m1.printEmpPriceAfterDisc(tShirt);
 
 
