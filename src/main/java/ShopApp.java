@@ -39,13 +39,8 @@ public class ShopApp {
 
     public static void printDiscAmtOff(Discountable[] pplWithDiscounts, Clothing cloth){
         for(Discountable d : pplWithDiscounts){
-            System.out.println(d.calcDiscount(cloth));
+            System.out.println(cloth.getDescription() + " gets a " + String.format("%s" + "%.2f", "$", d.calcDiscount(cloth)) + " from " + d.getClass().getSimpleName() + "'s Discount");
         }
-    }
-
-    public static void printDiscAmtOff(Clothing c){
-        System.out.println(c.getDescription() + " gets a " + String.format("%s" + "%.2f", "$", c.getPrice()*0.10) + " from Hourly Employee's discount");
-        System.out.println(c.getDescription() + " gets a " + String.format("%s" + "%.2f", "$", c.getPrice()*0.25) + " from Manager's Discount");
     }
 
 
@@ -97,8 +92,10 @@ public class ShopApp {
         System.out.println("\nAfter sorting by price:");
         sortAndPrintClothingByPrice(clothes);
 
+        Discountable[] employees = {(Discountable) e1,(Discountable) m1};
+
         System.out.println("\nDiscount for type of clothing for each employee-");
-        printDiscAmtOff(jeans);
+        printDiscAmtOff(employees, jeans);
 
 
     }
